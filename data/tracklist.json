@@ -1,0 +1,77 @@
+[
+  {
+    "curr_episode": "18",
+    "link": "https://SOMEEXAMPLEWEBSITE/film/the-big-bang-theory-season-10/",
+    "type": "series",
+    "userid": "AnonID1"
+  },
+  {
+    "curr_episode": "7",
+    "link": "https://SOMEEXAMPLEWEBSITE/film/black-sails-season-4",
+    "type": "series",
+    "userid": "AnonID2"
+  },
+  {
+    "link": "https://SOMEEXAMPLEWEBSITE/film/assassins-creed",
+    "req_quality": "HD",
+    "type": "movie",
+    "userid": "AnonID1"
+  },
+  {
+    "link": "https://SOMEEXAMPLEWEBSITE/film/assassins-creed",
+    "req_quality": "HD",
+    "type": "movie",
+    "userid": "AnonID2"
+  },
+  {
+    "link": "https://SOMEEXAMPLEWEBSITE/film/the-great-wall/",
+    "req_quality": "HD",
+    "type": "movie",
+    "userid": "AnonID2"
+  },
+  {
+    "link": "https://SOMEEXAMPLEWEBSITE/film/la-la-land/",
+    "req_quality": "HD",
+    "type": "movie",
+    "userid": "AnonID2"
+  },
+  {
+    "link": "https://piay.iflix.com",
+    "status": 1,
+    "title": "Captain America: The First Avenger",
+    "type": "movie",
+    "userid": "AnonID2"
+  },
+  {
+    "link": "https://piay.iflix.com",
+    "status": 1,
+    "title": "Captain America: The First Avenger",
+    "type": "movie",
+    "userid": "AnonID1"
+  },
+  {
+    "curr_episode": 35,
+    "link": "https://piay.iflix.com/tv/black-sails-1824",
+    "type": "series",
+    "userid": "AnonID2"
+  },
+  {
+    "curr_episode": 22,
+    "link": "https://piay.iflix.com/tv/mr.-robot-4130",
+    "type": "series",
+    "userid": "AnonID2"
+  },
+  {
+    "curr_episode": 22,
+    "link": "https://piay.iflix.com/tv/mr.-robot-4130",
+    "type": "series",
+    "userid": "AnonID1"
+  },
+  {
+    "link": "https://piay.iflix.com",
+    "status": 0,
+    "title": "nomovieexample",
+    "type": "movie",
+    "userid": "AnonID1"
+  }
+]

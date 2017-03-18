@@ -1,0 +1,9 @@
+[{
+    "userid": "AnonID1",
+    "email": "anonemail1@email.com",
+    "name": "anonymousName1"
+}, {
+    "userid": "AnonID2",
+    "email": "anonemail2@email.com",
+    "name": "anonymousName2"
+}]
