@@ -54,4 +54,6 @@ Wanted to learn python, so I made a web scraper to test out some of the features
     * PyQt
     * Kivy(interesting cross platform)
     * web interface(way more familiar with this)  
-* But for now it does the job. Moving on to checkout tensorflow
+* Probably should not have reinitialize and call quit for each action to improve performance.
+* Multi-threading could also help the performance when number of actions increases.
+* But for now it does the job. Moving on to checkout tensorflow.
