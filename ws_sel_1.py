@@ -29,7 +29,11 @@ def basescraper(t, url):
     else:
         vidobj = videodict.get(url)
 
-    msg = process_vid_data(t, vidobj)
+    if vidobj is not None:
+        msg = process_vid_data(t, vidobj)
+    else:
+        msg = "Unable to parse " + url
+
     return msg
 
 
@@ -52,34 +56,43 @@ def parseweb(url):
     # Get response from url
     url = url.rstrip("/")
     # Get webdriver browser
-    browser = get_browser()
-    browser.set_window_size(1280, 1024)
-    browser.get(url)
+    try:
+        browser = get_browser()
+        print("get " + url)
+        browser.set_page_load_timeout(4)
+        browser.set_window_size(1280, 1024)
+        browser.get(url)
 
-    # Wait for page to load by checking element (10 sec)
-    pgdtl = WebDriverWait(browser, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, ".page-detail"))
-    )
+        # Wait for page to load by checking element (10 sec)
+        print("processing" + url)
+        pgdtl = WebDriverWait(browser, 5).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".page-detail"))
+        )
 
-    # Check video type
-    vidtype = browser.find_element(By.CSS_SELECTOR, ".breadcrumb li + li a").text.strip().lower()
-    videoinfo = pgdtl.find_elements_by_css_selector(".mvici-right p")
-    vidtitle = pgdtl.find_element_by_css_selector(".mvic-desc h3").text
+        # Check video type
+        vidtype = browser.find_element(By.CSS_SELECTOR, ".breadcrumb li + li a").text.strip().lower()
+        videoinfo = pgdtl.find_elements_by_css_selector(".mvici-right p")
+        vidtitle = pgdtl.find_element_by_css_selector(".mvic-desc h3").text
 
-    if vidtype == "tv-series":
-        # This is a series
-        videodataobject = __get_seriesinfo(videoinfo)
-        videodataobject.link = url
-        videodataobject.title = vidtitle
-    elif vidtype == "movies":
-        # This is a movie
-        videodataobject = __get_movieinfo(videoinfo)
-        videodataobject.link = url
-        videodataobject.title = vidtitle
-    else:
-        videodataobject = None
+        if vidtype == "tv-series":
+            # This is a series
+            videodataobject = __get_seriesinfo(videoinfo)
+            videodataobject.link = url
+            videodataobject.title = vidtitle
+        elif vidtype == "movies":
+            # This is a movie
+            videodataobject = __get_movieinfo(videoinfo)
+            videodataobject.link = url
+            videodataobject.title = vidtitle
+        else:
+            videodataobject = None
 
-    return videodataobject
+        return videodataobject
+    except TimeoutException as e:
+        print("TimeoutException")
+        print(e)
+    finally:
+        browser.quit()
 
 
 def process_vid_data(vid_json, vid_obj):

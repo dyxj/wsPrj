@@ -38,16 +38,23 @@ def basescraper(t, url):
     else:
         return "invalid video type defined, please check track.json"
 
-    msg = process_vid_data(t, dataobj)
+    if dataobj is not None:
+        msg = process_vid_data(t, dataobj)
+    else:
+        msg = "Unable to parse " + url
+
     return msg
 
 
 def parsewebSeries(url):
     try:
         browser = get_browser()
+        print("get " + url)
+        browser.set_page_load_timeout(4)
         browser.get(url)
         # Wait for page to load by checking element (10 sec)
-        WebDriverWait(browser, 10).until(
+        print("processing" + url)
+        WebDriverWait(browser, 5).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, ".season-header ul li a"))
         )
         # Parse page
@@ -82,8 +89,11 @@ def parsewebMovies(title):
         modtitle = uparse.quote_plus(title)
         querylink = r"https://piay.iflix.com/search?query=" + modtitle
         browser = get_browser()
+        print("get " + querylink)
+        browser.set_page_load_timeout(4)
         browser.get(querylink)
         # Wait for page to load by checking element (10 sec)
+        print("processing" + title)
         found = WebDriverWait(browser, 10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, ".covers, .no-items raw strong"))
         )
