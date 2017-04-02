@@ -48,12 +48,3 @@ Wanted to learn python, so I made a web scraper to test out some of the features
     ...no update... Mr. Robot | Season 2 | Episode 12 | Link : https://piay.iflix.com/tv/mr.-robot-4130
     ...no update... nomovieexample not found
 
-### MISC. ###  
-* This project served as a tutorial for myself.  
-* I may re-visit this to provide proper UI with
-    * PyQt
-    * Kivy(interesting cross platform)
-    * web interface(way more familiar with this)  
-* Probably should not have reinitialize and call quit for each action to improve performance.
-* Multi-threading could also help the performance when number of actions increases.
-* But for now it does the job. Moving on to checkout tensorflow.
